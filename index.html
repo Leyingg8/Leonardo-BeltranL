@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+
+<html class="dark scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Leonardo Beltran | Social Marketing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#38265b",
+                        "surface-dim": "#051424",
+                        "on-surface-variant": "#c6c9af",
+                        "secondary-fixed": "#ebdcff",
+                        "on-secondary-container": "#c4aeed",
+                        "tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#454749",
+                        "surface-variant": "#273647",
+                        "on-primary-fixed-variant": "#3e4c00",
+                        "secondary-fixed-dim": "#d3bcfc",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-lowest": "#010f1f",
+                        "on-secondary-fixed": "#230f45",
+                        "surface-tint": "#b4d32f",
+                        "surface-container-high": "#1c2b3c",
+                        "secondary": "#d3bcfc",
+                        "inverse-primary": "#546500",
+                        "secondary-container": "#523f76",
+                        "on-tertiary": "#2f3133",
+                        "inverse-on-surface": "#233143",
+                        "on-primary": "#2a3400",
+                        "surface-container-low": "#0d1c2d",
+                        "outline": "#8f937c",
+                        "primary": "#ffffff",
+                        "surface-container-highest": "#273647",
+                        "on-primary-fixed": "#171e00",
+                        "primary-fixed": "#d1f24d",
+                        "tertiary-fixed-dim": "#c6c6c9",
+                        "primary-container": "#d1f24d",
+                        "on-tertiary-container": "#636467",
+                        "tertiary-container": "#e2e2e5",
+                        "background": "#051424",
+                        "on-tertiary-fixed": "#1a1c1e",
+                        "primary-fixed-dim": "#b4d32f",
+                        "on-background": "#d4e4fa",
+                        "inverse-surface": "#d4e4fa",
+                        "outline-variant": "#454935",
+                        "surface-container": "#122131",
+                        "tertiary-fixed": "#e2e2e5",
+                        "on-error": "#690005",
+                        "surface-bright": "#2c3a4c",
+                        "on-surface": "#d4e4fa",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed-variant": "#503d73",
+                        "error-container": "#93000a",
+                        "on-primary-container": "#596c00",
+                        "surface": "#051424"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "container-max": "1440px",
+                        "unit": "8px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "display-xl": ["Plus Jakarta Sans"],
+                        "title-md": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-xl": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Gooey Text Animation Styles */
+        .gooey-filter {
+            filter: url(#threshold) blur(0.6px);
+        }
+        .text-container {
+            position: relative;
+            height: 1.2em; /* Ensure enough height for the text */
+            display: inline-block;
+            vertical-align: bottom;
+        }
+        .word {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            display: inline-block;
+            text-align: left;
+            white-space: nowrap;
+        }
+        
+        /* Glassmorphism utilities */
+        .glass-panel {
+            background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation (JSON Shared Component) -->
+<nav class="fixed top-0 w-full z-50 bg-surface-variant/30 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-primary/5">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<img alt="Leonardo Beltran Logo" class="h-6 w-6 md:h-10 md:w-10 rounded-lg object-contain bg-surface-container-highest/50 p-1 border border-primary-container/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwtXNxjeEkuEiYQlzCOvNkR84MjEOrvP8DIugUWICU9OdByuLHibh8FFDDdHuqy6bo9ML07ZuYShjt2aOIFLyrAsCgGeNKFJ4KCRqw_oWsvdGUShBnkAth7tEoNkEaqyUe0aktHfKHiPvh7_fDk6meq_S8BmKqte_wFRCZZMAk1Kj3ImV0x-mhwa_TuDALWVY4PIHYCB82i6a2jK7ve5G6LjwaalsDXMMNzZlh5JvqC7kN6dgPNyBpFGrOjdmYXFLppRVh5CBNAfR2"/>
+<span class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg font-bold text-primary">Leonardo Beltran</span>
+</div>
+<div class="hidden md:flex items-center gap-8"><a class="font-title-md text-title-md text-on-surface-variant hover:text-primary-fixed transition-colors duration-300" data-i18n="nav_pricing" href="#services">Pricing</a><a class="font-title-md text-title-md text-on-surface-variant hover:text-primary-fixed transition-colors duration-300" data-i18n="nav_about" href="#about-me">About</a></div>
+<div class="flex items-center gap-4">
+<button class="hidden md:flex items-center gap-1 border border-white/20 rounded-full px-3 py-1 text-sm font-medium text-on-surface-variant hover:bg-white/10 transition-colors" id="lang-toggle"><span class="" id="lang-en">EN</span><span class="text-white/30">|</span><span class="" id="lang-es">ES</span></button><a class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-title-md text-title-md hover:scale-95 transition-transform" data-i18n="nav_get_started" href="#services">Get Started</a>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[100px]"> <!-- Offset for fixed nav -->
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 z-0 opacity-20 pointer-events-none rounded-3xl overflow-hidden mt-8 mx-margin-mobile md:mx-margin-desktop">
+<img alt="A high-end, minimalist workspace setup featuring a sleek laptop displaying complex analytics dashboards. The desk is dark wood, illuminated by a modern, neon lime green ambient backlight strip. A notebook titled 'Social Growth Strategy' rests beside a minimalist mechanical keyboard. The scene exudes executive authority, modern marketing professionalism, and sophisticated technical focus." class="w-full h-full object-cover" data-alt="A high-end, minimalist workspace setup featuring a sleek laptop displaying complex analytics dashboards. The desk is dark wood, illuminated by a modern, neon lime green ambient backlight strip. A notebook titled 'Social Growth Strategy' rests beside a minimalist mechanical keyboard. The scene exudes executive authority, modern marketing professionalism, and sophisticated technical focus." src="https://lh3.googleusercontent.com/aida/ADBb0ui9K3KWeRAtTp33WPeQGVYXvTK6RJWUURFbTjnhE7SuxH_anDjYCezHGu3WqNpNkB__esG4SGwTBLnJzWMuZ7Q9p7OtWdOOEtpKqjYDFpOCawd5FqIzKUTmnfFE3KoMwPKiJSBLS78dtXmcc2fIJkAQE3COreTIaavXKa-Wm8J9_wa-OOLXAVlx1Be-l8Q8rZmMiMJoMTq0mC9IRRXKG2CWE3OaAIIoe8m6EPtj7xK9R1BLs4Fa2vO0u7R5"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
+</div>
+<div class="relative z-10 w-full max-w-4xl pt-20">
+<div class="inline-block mb-6 px-4 py-1.5 rounded-full border border-primary-container/30 bg-primary-container/10 backdrop-blur-md">
+<span class="font-label-sm text-label-sm text-primary-fixed tracking-widest uppercase" data-i18n="hero_tagline">Premium Social Strategy</span>
+</div>
+<h1 class="font-display-xl text-primary mb-10 leading-tight text-4xl md:text-display-xl"><span class="" data-i18n="hero_title_1">Authoritative Strategy</span><br/><span class="" data-i18n="hero_title_2">for Modern Brands:</span><br/><span class="flex items-center mt-2 relative w-full h-[1.2em] md:justify-start"><svg aria-hidden="true" class="absolute h-0 w-0" focusable="false"><defs><filter id="threshold"><fecolormatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 255 -140"></fecolormatrix></filter></defs></svg><div class="flex items-center absolute inset-0 w-[300px]" style="filter: url(#threshold);"><span class="absolute inline-block select-none text-[#d1f24d]" id="text1" style="opacity: 0.962555; filter: blur(0.80088px);">Results.</span><span class="absolute inline-block select-none text-[#d1f24d]" id="text2" style="opacity: 0.383369; filter: blur(79.9121px);">Impact.</span></div></span></h1>
+<div class="flex flex-col sm:flex-row gap-4 mb-8">
+<a class="bg-primary-container text-on-primary-container px-8 py-4 rounded-full font-title-md text-title-md hover:bg-primary-fixed-dim transition-colors text-center shadow-[0_0_30px_rgba(209,242,77,0.15)]" data-i18n="hero_btn_book" href="#contact">Book a Consultation</a>
+<a class="px-8 py-4 rounded-full font-title-md text-title-md text-secondary border border-secondary/30 hover:bg-secondary/5 transition-colors text-center glass-panel" data-i18n="hero_btn_pricing" href="#services">View Pricing</a>
+</div>
+<p class="font-body-md text-body-md text-white/90 max-w-2xl text-lg md:text-xl drop-shadow-md" data-i18n="hero_desc">Tailored social media marketing for brands ready to lead. I build authoritative digital presences from the ground up, focusing on metrics that matter.</p>
+</div>
+</section><section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="about-me">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="space-y-6">
+<div class="inline-block px-4 py-1.5 rounded-full border border-primary-container/30 bg-primary-container/10 backdrop-blur-md">
+<span class="font-label-sm text-label-sm text-primary-fixed tracking-widest uppercase" data-i18n="about_tagline">About Me</span>
+</div>
+<h2 class="font-display-xl text-primary text-3xl md:text-display-xl leading-tight"><span class="" data-i18n="about_title_1">Direct Freelancer.</span> <br/><span class="text-primary-fixed" data-i18n="about_title_2">Real Results.</span></h2>
+<div class="w-20 h-1 bg-primary-container rounded-full"></div>
+</div>
+<div class="glass-panel p-8 md:p-10 rounded-3xl border-l-4 border-l-primary-container">
+<p class="font-body-md text-body-md text-on-surface-variant text-xl leading-relaxed" data-i18n="about_desc">I am Leonardo Beltran, a direct freelancer building high-authority social presences through transparency and measurable growth. No middlemen, no bureaucracy—just results.</p>
+</div>
+</div>
+</section>
+<!-- Why Me Section (Bento Grid) -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="about">
+<div class="mb-16">
+<h2 class="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-widest mb-4" data-i18n="why_tagline">Why Me</h2>
+<h3 class="font-display-xl text-display-xl text-primary" data-i18n="why_title">Built different.</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4 text-lg" data-i18n="why_desc">No agency overhead. No middlemen. Just focused work.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Bento Item 1 -->
+<div class="glass-panel p-8 rounded-2xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/5 rounded-full blur-3xl -mr-10 -mt-10 transition-transform group-hover:scale-150"></div>
+<div class="mb-6">
+<span class="inline-block px-3 py-1 rounded-full border border-primary-container text-primary-container font-label-sm text-label-sm bg-primary-container/10" data-i18n="why_1_tag">Zero lock-in</span>
+</div>
+<h4 class="font-title-md text-title-md text-primary mb-2" data-i18n="why_1_title">Weekly billing</h4>
+<p class="font-body-md text-body-md text-on-surface-variant" data-i18n="why_1_desc">Pay week to week. Stop anytime with no penalties and no awkward conversations.</p>
+</div>
+<!-- Bento Item 2 -->
+<div class="glass-panel p-8 rounded-2xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-full blur-3xl -mr-10 -mt-10 transition-transform group-hover:scale-150"></div>
+<div class="mb-6">
+<span class="inline-block px-3 py-1 rounded-full border border-secondary text-secondary font-label-sm text-label-sm bg-secondary/10" data-i18n="why_2_tag">1:1 only</span>
+</div>
+<h4 class="font-title-md text-title-md text-primary mb-2" data-i18n="why_2_title">Direct contact</h4>
+<p class="font-body-md text-body-md text-on-surface-variant" data-i18n="why_2_desc">You talk to me — not an account manager, not an assistant. Always me, always responsive.</p>
+</div>
+<!-- Bento Item 3 -->
+<div class="glass-panel p-8 rounded-2xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/5 rounded-full blur-3xl -mr-10 -mt-10 transition-transform group-hover:scale-150"></div>
+<div class="mb-6">
+<span class="inline-block px-3 py-1 rounded-full border border-primary-container text-primary-container font-label-sm text-label-sm bg-primary-container/10" data-i18n="why_3_tag">From scratch</span>
+</div>
+<h4 class="font-title-md text-title-md text-primary mb-2" data-i18n="why_3_title">Built for beginners</h4>
+<p class="font-body-md text-body-md text-on-surface-variant" data-i18n="why_3_desc">No presence? No problem. I specialize in brands starting from absolute zero.</p>
+</div>
+<!-- Bento Item 4 -->
+<div class="glass-panel p-8 rounded-2xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-full blur-3xl -mr-10 -mt-10 transition-transform group-hover:scale-150"></div>
+<div class="mb-6">
+<span class="inline-block px-3 py-1 rounded-full border border-secondary text-secondary font-label-sm text-label-sm bg-secondary/10" data-i18n="why_4_tag">Full transparency</span>
+</div>
+<h4 class="font-title-md text-title-md text-primary mb-2" data-i18n="why_4_title">Real reporting</h4>
+<p class="font-body-md text-body-md text-on-surface-variant" data-i18n="why_4_desc">Clear weekly numbers — reach, engagement, growth. No fluff, no excuses.</p>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-low border-y border-white/5" id="services">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-display-xl text-primary text-headline-lg" data-i18n="pricing_title">Transparent Weekly Retainers</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4 text-lg" data-i18n="pricing_desc">Predictable pricing for measurable growth.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+<!-- Standard Tier -->
+<div class="glass-panel p-8 rounded-3xl h-full flex flex-col">
+<h3 class="font-label-sm text-label-sm text-on-surface-variant tracking-widest uppercase mb-4" data-i18n="pricing_std_title">Standard</h3>
+<div class="flex items-baseline mb-6">
+<span class="font-title-md text-title-md text-primary mr-1">$</span>
+<span class="font-display-xl text-display-xl text-primary">299</span>
+<span class="font-body-md text-body-md text-on-surface-variant ml-2" data-i18n="pricing_wk">/wk</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 pb-8 border-b border-white/10" data-i18n="pricing_std_desc">For brands just getting started online.</p>
+<ul class="flex-grow space-y-4 mb-8">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container text-xl" style='font-variation-settings: "FILL" 1;'>check_box</span>
+<span class="font-body-md text-body-md text-on-surface-variant" data-i18n="pricing_std_f1">4 posts per week</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container text-xl" style='font-variation-settings: "FILL" 1;'>check_box</span>
+<span class="font-body-md text-body-md text-on-surface-variant" data-i18n="pricing_std_f2">Essential management</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container text-xl" style='font-variation-settings: "FILL" 1;'>check_box</span>
+<span class="font-body-md text-body-md text-on-surface-variant" data-i18n="pricing_std_f3">1 Platform focus</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container text-xl" style='font-variation-settings: "FILL" 1;'>check_box</span>
+<span class="font-body-md text-body-md text-on-surface-variant" data-i18n="pricing_std_f4">Basic strategy &amp; copy</span>
+</li>
+</ul>
+<a class="w-full block text-center py-3 rounded-xl border border-white/10 text-primary font-title-md text-title-md hover:bg-white/5 transition-colors" data-i18n="pricing_btn" href="#contact">Get Started</a>
+</div>
+<!-- Advanced Tier (Highlighted) -->
+<div class="bg-surface-variant p-8 rounded-3xl h-full flex flex-col border border-primary-container shadow-[0_0_40px_rgba(209,242,77,0.05)] relative transform md:-translate-y-4">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-container text-on-primary-container px-4 py-1 rounded-full font-label-sm text-label-sm tracking-widest uppercase" data-i18n="pricing_adv_badge">Most Popular</div>
+<h3 class="font-label-sm text-label-sm text-primary-container tracking-widest uppercase mb-4 mt-2" data-i18n="pricing_adv_title">Advanced</h3>
+<div class="flex items-baseline mb-6">
+<span class="font-title-md text-title-md text-primary mr-1">$</span>
+<span class="font-display-xl text-display-xl text-primary">449</span>
+<span class="font-body-md text-body-md text-on-surface-variant ml-2" data-i18n="pricing_wk">/wk</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 pb-8 border-b border-white/10" data-i18n="pricing_adv_desc">For brands ready to scale across platforms.</p>
+<ul class="flex-grow space-y-4 mb-8">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container text-xl" style='font-variation-settings: "FILL" 1;'>check_box</span>
+<span class="font-body-md text-body-md text-on-surface-variant" data-i18n="pricing_adv_f1">7 posts per week</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container text-xl" style='font-variation-settings: "FILL" 1;'>check_box</span>
+<span class="font-body-md text-body-md text-on-surface-variant" data-i18n="pricing_adv_f2">Full digital strategy</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container text-xl" style='font-variation-settings: "FILL" 1;'>check_box</span>
+<span class="font-body-md text-body-md text-on-surface-variant" data-i18n="pricing_adv_f3">Up to 3 platforms</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container text-xl" style='font-variation-settings: "FILL" 1;'>check_box</span>
+<span class="font-body-md text-body-md text-on-surface-variant" data-i18n="pricing_adv_f4">Content creation (Reels/Carousels)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container text-xl" style='font-variation-settings: "FILL" 1;'>check_box</span>
+<span class="font-body-md text-body-md text-on-surface-variant" data-i18n="pricing_adv_f5">Weekly analytics report</span>
+</li>
+</ul>
+<a class="w-full block text-center py-3 rounded-xl bg-primary-container text-on-primary-container font-title-md text-title-md hover:bg-primary-fixed-dim transition-colors" data-i18n="pricing_btn" href="#contact">Get Started</a>
+</div>
+<!-- Premium Tier -->
+<div class="glass-panel p-8 rounded-3xl h-full flex flex-col">
+<h3 class="font-label-sm text-label-sm text-on-surface-variant tracking-widest uppercase mb-4" data-i18n="pricing_prem_title">Premium</h3>
+<div class="flex items-baseline mb-6">
+<span class="font-title-md text-title-md text-primary mr-1">$</span>
+<span class="font-display-xl text-display-xl text-primary">559</span>
+<span class="font-body-md text-body-md text-on-surface-variant ml-2" data-i18n="pricing_wk">/wk</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 pb-8 border-b border-white/10" data-i18n="pricing_prem_desc">Full-service for serious, fast growth.</p>
+<ul class="flex-grow space-y-4 mb-8">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl" style='font-variation-settings: "FILL" 1;'>check_box</span>
+<span class="font-body-md text-body-md text-on-surface-variant" data-i18n="pricing_prem_f1">&gt;9 posts &amp; personalized content</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl" style='font-variation-settings: "FILL" 1;'>check_box</span>
+<span class="font-body-md text-body-md text-on-surface-variant" data-i18n="pricing_prem_f2">Full digital takeover</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl" style='font-variation-settings: "FILL" 1;'>check_box</span>
+<span class="font-body-md text-body-md text-on-surface-variant" data-i18n="pricing_prem_f3">All relevant platforms</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl" style='font-variation-settings: "FILL" 1;'>check_box</span>
+<span class="font-body-md text-body-md text-on-surface-variant" data-i18n="pricing_prem_f4">Priority 1:1 access</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl" style='font-variation-settings: "FILL" 1;'>check_box</span>
+<span class="font-body-md text-body-md text-on-surface-variant" data-i18n="pricing_prem_f5">Landing page consultation included</span>
+</li>
+</ul>
+<a class="w-full block text-center py-3 rounded-xl border border-white/10 text-primary font-title-md text-title-md hover:bg-white/5 transition-colors" data-i18n="pricing_btn" href="#contact">Get Started</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto" id="contact">
+<div class="glass-panel rounded-3xl p-8 md:p-12">
+<div class="text-center mb-10">
+<h2 class="font-display-xl text-display-xl text-primary" data-i18n="contact_title">Get in Touch</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4" data-i18n="contact_desc">Let's discuss your brand's growth potential.</p>
+</div>
+<form action="https://formspree.io/f/mykvovqq" class="space-y-6" method="POST">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block" data-i18n="contact_label_name" for="name">Full Name</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg focus:ring-1 focus:ring-primary-container focus:border-b-2 focus:border-b-primary-container text-primary px-4 py-3 font-body-md text-body-md placeholder-on-surface-variant/50 transition-all" data-i18n-placeholder="contact_placeholder_name" id="name" name="name" placeholder="Jane Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block" data-i18n="contact_label_email" for="email">Work Email</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg focus:ring-1 focus:ring-primary-container focus:border-b-2 focus:border-b-primary-container text-primary px-4 py-3 font-body-md text-body-md placeholder-on-surface-variant/50 transition-all" data-i18n-placeholder="contact_placeholder_email" id="email" name="email" placeholder="jane@company.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block" data-i18n="contact_label_inquiry" for="inquiry">Inquiry Type</label>
+<select class="w-full bg-surface-container-high border-none rounded-lg focus:ring-1 focus:ring-primary-container focus:border-b-2 focus:border-b-primary-container text-primary px-4 py-3 font-body-md text-body-md appearance-none transition-all" id="inquiry" name="service">
+<option data-i18n="contact_opt_1">Standard Retainer ($299/wk)</option>
+<option data-i18n="contact_opt_2" selected="">Advanced Retainer ($449/wk)</option>
+<option data-i18n="contact_opt_3">Premium Retainer ($559/wk)</option>
+<option data-i18n="contact_opt_4">Custom Consultation</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block" data-i18n="contact_label_msg" for="message">Tell me about your brand</label>
+<textarea class="w-full bg-surface-container-high border-none rounded-lg focus:ring-1 focus:ring-primary-container focus:border-b-2 focus:border-b-primary-container text-primary px-4 py-3 font-body-md text-body-md placeholder-on-surface-variant/50 transition-all resize-none" data-i18n-placeholder="contact_placeholder_msg" id="message" name="message" placeholder="Current challenges, goals, website link..." rows="4"></textarea>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container py-4 rounded-xl font-title-md text-title-md hover:bg-primary-fixed-dim transition-colors mt-8" data-i18n="contact_btn" type="submit">Send Request</button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer (JSON Shared Component) -->
+<footer class="bg-surface-dim text-primary-fixed font-body-md text-body-md border-t border-white/5 w-full py-16">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto gap-8">
+<div class="font-title-md text-title-md font-bold text-primary flex items-center gap-3"><img alt="Leonardo Beltran Logo" class="h-6 w-6 md:h-8 md:w-8 rounded-lg object-contain bg-surface-container-highest/50 p-1 border border-primary-container/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwtXNxjeEkuEiYQlzCOvNkR84MjEOrvP8DIugUWICU9OdByuLHibh8FFDDdHuqy6bo9ML07ZuYShjt2aOIFLyrAsCgGeNKFJ4KCRqw_oWsvdGUShBnkAth7tEoNkEaqyUe0aktHfKHiPvh7_fDk6meq_S8BmKqte_wFRCZZMAk1Kj3ImV0x-mhwa_TuDALWVY4PIHYCB82i6a2jK7ve5G6LjwaalsDXMMNzZlh5JvqC7kN6dgPNyBpFGrOjdmYXFLppRVh5CBNAfR2"/>Leonardo Beltran</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-on-surface-variant hover:text-secondary-fixed-dim transition-colors" href="#">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-secondary-fixed-dim transition-colors" href="#">Instagram</a>
+<a class="text-on-surface-variant hover:text-secondary-fixed-dim transition-colors" data-i18n="footer_privacy" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-secondary-fixed-dim transition-colors" data-i18n="footer_terms" href="#">Terms of Service</a>
+</div>
+<div class="text-on-surface-variant text-center md:text-right"><div class="flex flex-col items-center md:items-end text-on-surface-variant text-sm"><span class="" data-i18n="footer_copy">© 2026 Leonardo Beltran</span><span class="mt-2" data-i18n="footer_created">Created by Leonardo Beltran</span></div></div>
+</div>
+</footer>
+<!-- Gooey Text Animation & Translations Script -->
+<script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Gooey Animation
+            const enTexts = ["Impact.", "Authority.", "Growth.", "Results."];
+            const esTexts = ["Impacto.", "Autoridad.", "Crecimiento.", "Resultados."];
+            let currentLang = 'en';
+            let texts = enTexts;
+            
+            const morphTime = 1;
+            const cooldownTime = 0.25;
+            
+            const text1 = document.getElementById("text1");
+            const text2 = document.getElementById("text2");
+            
+            let textIndex = texts.length - 1;
+            let time = new Date();
+            let morph = 0;
+            let cooldown = cooldownTime;
+            
+            if(text1 && text2) {
+                text1.textContent = texts[textIndex % texts.length];
+                text2.textContent = texts[(textIndex + 1) % texts.length];
+                animate();
+            }
+            
+            function setMorph(fraction) {
+                text2.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+                text2.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+                fraction = 1 - fraction;
+                text1.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+                text1.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+            }
+            
+            function doCooldown() {
+                morph = 0;
+                text2.style.filter = "";
+                text2.style.opacity = "100%";
+                text1.style.filter = "";
+                text1.style.opacity = "0%";
+            }
+            
+            function doMorph() {
+                morph -= cooldown;
+                cooldown = 0;
+                let fraction = morph / morphTime;
+                if (fraction > 1) {
+                    cooldown = cooldownTime;
+                    fraction = 1;
+                }
+                setMorph(fraction);
+            }
+            
+            function animate() {
+                requestAnimationFrame(animate);
+                const newTime = new Date();
+                const shouldIncrementIndex = cooldown > 0;
+                const dt = (newTime.getTime() - time.getTime()) / 1000;
+                time = newTime;
+                cooldown -= dt;
+                
+                if (cooldown <= 0) {
+                    if (shouldIncrementIndex) {
+                        textIndex = (textIndex + 1) % texts.length;
+                        text1.textContent = texts[textIndex % texts.length];
+                        text2.textContent = texts[(textIndex + 1) % texts.length];
+                    }
+                    doMorph();
+                } else {
+                    doCooldown();
+                }
+            }
+
+            // Translation System
+            const translations = {
+                en: {
+                    nav_pricing: "Pricing",
+                    nav_about: "About",
+                    nav_get_started: "Get Started",
+                    hero_tagline: "Premium Social Strategy",
+                    hero_title_1: "Authoritative Strategy",
+                    hero_title_2: "for Modern Brands:",
+                    hero_desc: "Tailored social media marketing for brands ready to lead. I build authoritative digital presences from the ground up, focusing on metrics that matter.",
+                    hero_btn_book: "Book a Consultation",
+                    hero_btn_pricing: "View Pricing",
+                    about_tagline: "About Me",
+                    about_title_1: "Direct Freelancer.",
+                    about_title_2: "Real Results.",
+                    about_desc: "I am Leonardo Beltran, a direct freelancer building high-authority social presences through transparency and measurable growth. No middlemen, no bureaucracy—just results.",
+                    why_tagline: "Why Me",
+                    why_title: "Built different.",
+                    why_desc: "No agency overhead. No middlemen. Just focused work.",
+                    why_1_tag: "Zero lock-in",
+                    why_1_title: "Weekly billing",
+                    why_1_desc: "Pay week to week. Stop anytime with no penalties and no awkward conversations.",
+                    why_2_tag: "1:1 only",
+                    why_2_title: "Direct contact",
+                    why_2_desc: "You talk to me — not an account manager, not an assistant. Always me, always responsive.",
+                    why_3_tag: "From scratch",
+                    why_3_title: "Built for beginners",
+                    why_3_desc: "No presence? No problem. I specialize in brands starting from absolute zero.",
+                    why_4_tag: "Full transparency",
+                    why_4_title: "Real reporting",
+                    why_4_desc: "Clear weekly numbers — reach, engagement, growth. No fluff, no excuses.",
+                    pricing_title: "Transparent Weekly Retainers",
+                    pricing_desc: "Predictable pricing for measurable growth.",
+                    pricing_std_title: "Standard",
+                    pricing_wk: "/wk",
+                    pricing_std_desc: "For brands just getting started online.",
+                    pricing_std_f1: "4 posts per week",
+                    pricing_std_f2: "Essential management",
+                    pricing_std_f3: "1 Platform focus",
+                    pricing_std_f4: "Basic strategy & copy",
+                    pricing_btn: "Get Started",
+                    pricing_adv_badge: "Most Popular",
+                    pricing_adv_title: "Advanced",
+                    pricing_adv_desc: "For brands ready to scale across platforms.",
+                    pricing_adv_f1: "7 posts per week",
+                    pricing_adv_f2: "Full digital strategy",
+                    pricing_adv_f3: "Up to 3 platforms",
+                    pricing_adv_f4: "Content creation (Reels/Carousels)",
+                    pricing_adv_f5: "Weekly analytics report",
+                    pricing_prem_title: "Premium",
+                    pricing_prem_desc: "Full-service for serious, fast growth.",
+                    pricing_prem_f1: ">9 posts & personalized content",
+                    pricing_prem_f2: "Full digital takeover",
+                    pricing_prem_f3: "All relevant platforms",
+                    pricing_prem_f4: "Priority 1:1 access",
+                    pricing_prem_f5: "Landing page consultation included",
+                    contact_title: "Get in Touch",
+                    contact_desc: "Let's discuss your brand's growth potential.",
+                    contact_label_name: "Full Name",
+                    contact_placeholder_name: "Jane Doe",
+                    contact_label_email: "Work Email",
+                    contact_placeholder_email: "jane@company.com",
+                    contact_label_inquiry: "Inquiry Type",
+                    contact_opt_1: "Standard Retainer ($299/wk)",
+                    contact_opt_2: "Advanced Retainer ($449/wk)",
+                    contact_opt_3: "Premium Retainer ($559/wk)",
+                    contact_opt_4: "Custom Consultation",
+                    contact_label_msg: "Tell me about your brand",
+                    contact_placeholder_msg: "Current challenges, goals, website link...",
+                    contact_btn: "Send Request",
+                    footer_privacy: "Privacy Policy",
+                    footer_terms: "Terms of Service",
+                    footer_copy: "© 2026 Leonardo Beltran",
+                    footer_created: "Created by Leonardo Beltran"
+                },
+                es: {
+                    nav_pricing: "Precios",
+                    nav_about: "Acerca de",
+                    nav_get_started: "Comenzar",
+                    hero_tagline: "Estrategia Social Premium",
+                    hero_title_1: "Estrategia de Autoridad",
+                    hero_title_2: "para Marcas Modernas:",
+                    hero_desc: "Marketing en redes sociales a medida para marcas listas para liderar. Construyo presencias digitales con autoridad desde cero, enfocándome en las métricas que importan.",
+                    hero_btn_book: "Reservar Consulta",
+                    hero_btn_pricing: "Ver Precios",
+                    about_tagline: "Sobre Mí",
+                    about_title_1: "Freelancer Directo.",
+                    about_title_2: "Resultados Reales.",
+                    about_desc: "Soy Leonardo Beltran, un freelancer directo que construye presencias sociales de alta autoridad a través de la transparencia y el crecimiento medible. Sin intermediarios, sin burocracia—solo resultados.",
+                    why_tagline: "Por Qué Yo",
+                    why_title: "Construido diferente.",
+                    why_desc: "Sin gastos de agencia. Sin intermediarios. Solo trabajo enfocado.",
+                    why_1_tag: "Cero ataduras",
+                    why_1_title: "Facturación semanal",
+                    why_1_desc: "Paga semana a semana. Cancela en cualquier momento sin penalizaciones ni conversaciones incómodas.",
+                    why_2_tag: "Solo 1:1",
+                    why_2_title: "Contacto directo",
+                    why_2_desc: "Hablas conmigo — no con un gerente de cuenta, no con un asistente. Siempre yo, siempre receptivo.",
+                    why_3_tag: "Desde cero",
+                    why_3_title: "Construido para principiantes",
+                    why_3_desc: "¿Sin presencia? No hay problema. Me especializo en marcas que empiezan desde cero absoluto.",
+                    why_4_tag: "Transparencia total",
+                    why_4_title: "Reportes reales",
+                    why_4_desc: "Números semanales claros — alcance, interacción, crecimiento. Sin relleno, sin excusas.",
+                    pricing_title: "Retenciones Semanales Transparentes",
+                    pricing_desc: "Precios predecibles para un crecimiento medible.",
+                    pricing_std_title: "Estándar",
+                    pricing_wk: "/sem",
+                    pricing_std_desc: "Para marcas que recién comienzan en línea.",
+                    pricing_std_f1: "4 publicaciones por semana",
+                    pricing_std_f2: "Gestión esencial",
+                    pricing_std_f3: "Enfoque en 1 plataforma",
+                    pricing_std_f4: "Estrategia y copy básicos",
+                    pricing_btn: "Comenzar",
+                    pricing_adv_badge: "Más Popular",
+                    pricing_adv_title: "Avanzado",
+                    pricing_adv_desc: "Para marcas listas para escalar en múltiples plataformas.",
+                    pricing_adv_f1: "7 publicaciones por semana",
+                    pricing_adv_f2: "Estrategia digital completa",
+                    pricing_adv_f3: "Hasta 3 plataformas",
+                    pricing_adv_f4: "Creación de contenido (Reels/Carruseles)",
+                    pricing_adv_f5: "Reporte analítico semanal",
+                    pricing_prem_title: "Premium",
+                    pricing_prem_desc: "Servicio completo para un crecimiento rápido y serio.",
+                    pricing_prem_f1: ">9 publicaciones y contenido personalizado",
+                    pricing_prem_f2: "Toma de control digital completa",
+                    pricing_prem_f3: "Todas las plataformas relevantes",
+                    pricing_prem_f4: "Acceso prioritario 1:1",
+                    pricing_prem_f5: "Consulta de landing page incluida",
+                    contact_title: "Ponerse en Contacto",
+                    contact_desc: "Discutamos el potencial de crecimiento de tu marca.",
+                    contact_label_name: "Nombre Completo",
+                    contact_placeholder_name: "Juan Pérez",
+                    contact_label_email: "Correo de Trabajo",
+                    contact_placeholder_email: "juan@empresa.com",
+                    contact_label_inquiry: "Tipo de Consulta",
+                    contact_opt_1: "Retención Estándar ($299/sem)",
+                    contact_opt_2: "Retención Avanzada ($449/sem)",
+                    contact_opt_3: "Retención Premium ($559/sem)",
+                    contact_opt_4: "Consulta Personalizada",
+                    contact_label_msg: "Cuéntame sobre tu marca",
+                    contact_placeholder_msg: "Desafíos actuales, metas, enlace del sitio web...",
+                    contact_btn: "Enviar Solicitud",
+                    footer_privacy: "Política de Privacidad",
+                    footer_terms: "Términos de Servicio",
+                    footer_copy: "© 2026 Leonardo Beltran",
+                    footer_created: "Creado por Leonardo Beltran"
+                }
+            };
+
+            const langToggleBtn = document.getElementById('lang-toggle');
+            const langEnSpan = document.getElementById('lang-en');
+            const langEsSpan = document.getElementById('lang-es');
+
+            function updateLanguage(lang) {
+                currentLang = lang;
+                texts = lang === 'en' ? enTexts : esTexts;
+                
+                // Update text content
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[lang][key]) {
+                        el.textContent = translations[lang][key];
+                    }
+                });
+
+                // Update placeholders
+                document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                    const key = el.getAttribute('data-i18n-placeholder');
+                    if (translations[lang][key]) {
+                        el.placeholder = translations[lang][key];
+                    }
+                });
+
+                // Update toggle UI
+                if (lang === 'en') {
+                    langEnSpan.classList.remove('text-white/30');
+                    langEsSpan.classList.add('text-white/30');
+                } else {
+                    langEnSpan.classList.add('text-white/30');
+                    langEsSpan.classList.remove('text-white/30');
+                }
+            }
+
+            langToggleBtn.addEventListener('click', () => {
+                updateLanguage(currentLang === 'en' ? 'es' : 'en');
+            });
+        });
+    </script>
+</body></html>
